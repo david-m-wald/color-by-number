@@ -1,0 +1,1 @@
+ReactDOM.render(<Puzzle />, document.getElementById("app"));

@@ -1,0 +1,150 @@
+body {
+  margin: 10px;
+}
+
+#puzzle {
+  max-width: 400px;
+  margin: auto;
+}
+
+/*relative to #puzzle*/
+#board-frame {
+  position: relative;
+
+  /*Maintain responsive aspect ratio of 1:1*/
+  width: 100%; /*allows board outline to be visible in smaller viewport*/
+  height: 0;
+  padding-bottom: 100%;
+
+  outline: 2px solid black;
+}
+
+#board {
+  width: 100%;
+  height: auto;
+  text-align: center; /*inline-block contents are centered*/
+
+  /*vertically align board within frame*/
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#color-bank {
+  position: sticky;
+  bottom: 0;
+
+  /*Maintain responsive aspect ratio of 5:1*/
+  width: 100%;
+  height: 0;
+  padding-bottom: 20%;
+}
+
+/*relative to #color-bank*/
+#color-set {
+  display: inline-block;
+
+  /*Maintain responsive aspect ratio of 4:1*/
+  width: 80%;
+  height: 0;
+  padding-bottom: 20%; /*this will give same height as #color-bank*/
+
+  white-space: nowrap;  /*prevent color selectors from wrapping*/
+  overflow: hidden; /*for custom scrolling*/
+
+  background-color: lightgray;
+}
+
+.scrollArrow {
+  display: inline-block;
+
+  /*Maintain responsive aspect ratio of 1:2 */
+  width: 10%;
+  height: 0;
+  padding-bottom: 20%; /*this will give same height as #color-bank*/
+
+  vertical-align: top; /*ensures all color bank components are properly aligned*/
+}
+
+.scrollArrow-left {
+  border-radius: 50% 0 0 50%;
+}
+
+.scrollArrow-right {
+  border-radius: 0 50% 50% 0;
+}
+
+.scrollArrow:hover {
+  background-color: darkslategray !important;
+}
+
+/*relative to #color-set*/
+.colorSelector {
+  display: inline-block;
+
+  /*Maintain responsive aspect ratio of 1:1*/
+  width: 15%;
+  height: 0;
+  padding-bottom: 15%;
+
+  margin-top: 5%; /*centers vertically in parent*/
+  margin-left: 2.5%;  /*separation*/
+  margin-right: 2.5%; /*separation*/
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px black; /*box-shadow instead of border so responsive aspect ratio works*/
+}
+
+/*relative to .colorSelector*/
+.colorSelectorInterior {
+  display: inline-block;
+
+  background-color: white;
+
+  /*Maintain responsive aspect ratio of 1:1*/
+  width: 60%;
+  height: 0;
+  padding-bottom: 60%;
+
+  border-radius: 50%;
+  margin: 20%; /*for centering*/
+}
+
+/*relative to #board*/
+.tile {
+  display: inline-block;
+
+  /*Maintain responsive aspect ratio of 1:1 - width/padding-bottom calculated by Tile component*/
+  height: 0;
+
+  vertical-align: top; /*ensures all tiles are properly aligned without gaps at viewport sizes*/
+  box-shadow: 0 0 0 1px lightgray inset; /*box-shadow instead of border so responsive aspect ratio works*/
+}
+
+/*general*/
+p {
+  text-align: center;
+  font-weight: 800;
+
+  /*vertical alignment of text*/
+  margin-top: 50%;
+  transform: translateY(-50%);
+}
+
+div {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@media screen and (min-width: 0) {
+  p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  p {
+    font-size: 20px;
+  }
+}
