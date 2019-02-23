@@ -56,7 +56,7 @@ class ColorBank extends React.Component {
     else if (!this.state.rightActive && fractionScrolled <= tolerance)
       this.setState({rightActive: true});
   }
-  
+ 
   render() {
     let jsx = [];
     let selectShadow = "0px 0px 6px 2px red";

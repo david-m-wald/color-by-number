@@ -3,6 +3,7 @@ let Tile = (props) => {
 
   return (
     <div className="tile" onMouseDown={props.onMouseDown} onMouseEnter={props.onMouseEnter}
+      onDoubleClick={props.onDoubleClick}
       style={{backgroundColor: props.color, width: `${size}%`, paddingBottom: `${size}%`}}>
       <p style={{visibility: props.display}}>{props.number}</p>
     </div>
